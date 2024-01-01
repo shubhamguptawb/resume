@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/Version-1.3.1-blue"/ >
 </p>
 
-![shubham-gupta-nextjs-portfolio](https://user-images.githubusercontent.com/85820227/231833369-cecb13b5-3598-4f0a-b7dc-460a1e206e93.png)
+
 
 ## Sections
 
