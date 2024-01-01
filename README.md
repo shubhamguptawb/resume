@@ -82,10 +82,10 @@
 ## Contact
 
 - Website - [shubham-gupta.vercel.app](https://shubham-gupta.vercel.app)
-- Github - [@shubham-gupta](https://github.com/shubham-gupta)
-- LinkedIn - [@shubham-gupta](https://www.linkedin.com/in/shubham-gupta/)
-- Twitter - [@gauravsarage4](https://www.twitter.com/gauravsarage4)
-- Instagram - [@gauravsarage_19](https://www.instagram.com/gauravsarage_19)
+- Github - [@shubham-gupta](https://github.com/shubhamguptawb)
+- LinkedIn - [@shubham-gupta](https://www.linkedin.com/in/shubhamguptawb/)
+- Twitter - [@shubhamgupta4](https://www.twitter.com/)
+- Instagram - [@shubhamgupta_19](https://www.instagram.com/)
 
 ## Acknowledgements
 
