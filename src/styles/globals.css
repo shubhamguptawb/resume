@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Color variables for future use */
+  :root {
+    --color-bg: #fcfaf8;
+    --color-accent: #14cf93;
+    --color-accent: #64ffda;
+    --color-accent: #0882a4;
+    --color-text: #404756;
+    --color-dark-2: #23272f;
+    --color-dark-3: #a2a2a2;
+    --tw-shadow: 0 16px 32px -16px rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.1);
+    --tw-shadow-colored: 0 16px 32px -16px var(--tw-shadow-color),0 0 0 1px var(--tw-shadow-color);
+    /* Light Theme */
+
+  }
+
+ 
+
+  /* Dark Theme */
+  .dark {
+    --color-bg: theme(colors.slate.900);
+    --color-bg-secondary: theme(colors.slate.800);
+    --color-accent: theme(colors.sky.400);
+    --color-accent-light: theme(colors.sky.400/0.1);
+    --color-text: theme(colors.slate.400);
+    --color-dark-1: theme(colors.slate.200);
+    --color-dark-2: theme(colors.slate.300);
+    --color-dark-3: theme(colors.slate.700);
+  }
+
+  @font-face {
+    font-family: 'agustina';
+    src: url('/fonts/Agustina-Signature.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter.ttf') format('opentype');
+  }
+
+  * {
+    @apply focus:outline-dashed outline-[3px] outline-offset-4 outline-accent;
+  }
+}
+
+/* TYPOGRAPHY */
+
+.heading-secondary {
+  @apply text-3xl sm:text-4xl capitalize font-medium mb-8 sm:mb-12 text-dark-2;
+}
+
+
+.bg-gradient-right {
+  
+  background-image: conic-gradient(from -90deg at 110% 100%,#fff 0deg,#ebecf0 90deg,#ebecf0 1turn);
+}
+
+.bg-gradient-left {
+  background-image: conic-gradient(from 90deg at -10% 100%,#bcc1cd 0deg,#bcc1cd 90deg,#fff 1turn);
+}
+
+
+
+:is(.dark .dark\:bg-gradient-left-dark) {
+  background-image: conic-gradient(from 90deg at -10% 100%,#2b303b 0deg,#2b303b 90deg,#16181d 1turn);
+}
+
+:is(.dark .dark\:bg-gradient-right-dark) {
+  background-image: conic-gradient(from -90deg at 110% 100%,#2b303b 0deg,#16181d 90deg,#16181d 1turn);
+}
+
+.shadow-nav, .shadow-none {
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+}
