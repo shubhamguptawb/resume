@@ -9,7 +9,7 @@ const Skills = () => {
   const { isDark } = useContext(themeContext);
 
   return (
-    <Wrapper as="section" id="skills" {...getSectionAnimation} className='bg-gradient-right'>
+    <Wrapper as="section" id="skills" {...getSectionAnimation} className='bg-gradient-right dark:bg-gradient-right-dark'>
        <div className='mx-auto max-w-[60rem] px-6 md:px-0'>
       <h2 className="heading-secondary text-center">{title}</h2>
 

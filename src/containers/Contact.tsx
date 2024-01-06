@@ -7,9 +7,13 @@ const Contact = () => {
   return (
     <Wrapper
       id="contact"
-      className="max-w-xl mx-auto text-center  !py-16 md:!py-24 mb-20 md:mb-32"
+      className='bg-gradient-left !py-16 md:!py-24 mb-20 md:mb-32'
       {...getSectionAnimation}
-    >
+      >
+      <div
+      className="max-w-xl mx-auto text-center  "
+      >
+
       <p className="text-accent text-sm capitalize mb-3 font-mono">
         {subtitle}
       </p>
@@ -22,6 +26,8 @@ const Contact = () => {
       <Button type="link" size="lg" href={link} center className="mt-12">
         Let's Connect
       </Button>
+      </div>
+
     </Wrapper>
   );
 };

@@ -83,9 +83,9 @@ const Navbar = () => {
       initial="hidden"
       animate="show"
       id="navbar"
-      className="px-8 md:px-6 xl:px-12 py-4 fixed inset-x-0 top-0 right-0 flex justify-between items-end z-50 duration-500 backdrop-blur-lg md:border-b-2 border-b-0 border-[#e5e7eb]   md:bg-[rgba(255,255,255,0.9)] bg-transparent shadow-nav"
+      className="px-8 md:px-6 xl:px-12 py-4 fixed inset-x-0 top-0 right-0 flex justify-between items-end z-50 duration-500  md:border-b-0  md:bg-[#fff] dark:md:bg-[#23272f] bg-transparent shadow-nav"
     >
-      <h1 className="font-Inter text-accent capitalize text-2xl relative group top-1">
+      <h1 className="font-lemon text-accent capitalize text-2xl relative group top-1">
         <a href="/#hero" className="block">
           {author.name}
           <div className="absolute bottom-1.5 left-0 h-[1px] w-0 group-hover:w-full bg-accent duration-300"></div>

@@ -9,6 +9,7 @@ module.exports = {
         signature: ['agustina', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
         mono: ['Roboto Mono', 'monospace'],
+        lemon:['Lemon-Regular', 'sans-serif'],
       },
       screens: {
         xs: '375px',

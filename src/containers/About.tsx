@@ -14,7 +14,7 @@ const About = () => {
   }, []);
 
   return domLoaded ? (
-    <Wrapper id="about" {...getSectionAnimation} className=' bg-gradient-left'>
+    <Wrapper id="about" {...getSectionAnimation} className='bg-gradient-left'>
   <div className='mx-auto max-w-[60rem] px-6 md:px-0'>
       <h2 className="heading-secondary">{title}</h2>
       <main className="flex gap-16 items-center lg:items-start flex-col lg:flex-row">

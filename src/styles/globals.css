@@ -6,9 +6,7 @@
 
   /* Color variables for future use */
   :root {
-    --color-bg: #fcfaf8;
-    --color-accent: #14cf93;
-    --color-accent: #64ffda;
+    --color-bg: #fff;
     --color-accent: #0882a4;
     --color-text: #404756;
     --color-dark-2: #23272f;
@@ -23,14 +21,14 @@
 
   /* Dark Theme */
   .dark {
-    --color-bg: theme(colors.slate.900);
+    --color-bg: #16181d;
     --color-bg-secondary: theme(colors.slate.800);
-    --color-accent: theme(colors.sky.400);
-    --color-accent-light: theme(colors.sky.400/0.1);
-    --color-text: theme(colors.slate.400);
-    --color-dark-1: theme(colors.slate.200);
-    --color-dark-2: theme(colors.slate.300);
-    --color-dark-3: theme(colors.slate.700);
+    --color-accent:#0882a4;
+    --color-accent-light: #0882a4;
+    --color-text: #f6f7f9;
+    --color-dark-1: #ebecf0;
+    --color-dark-2: #ebecf0;
+    --color-dark-3: #ebecf0;
   }
 
   @font-face {
@@ -41,6 +39,10 @@
   @font-face {
     font-family: 'Inter';
     src: url('/fonts/Inter.ttf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Lemon-Regular';
+    src: url('/fonts/Lemon-Regular.ttf') format('opentype');
   }
 
   * {
@@ -66,14 +68,45 @@
 
 
 
-:is(.dark .dark\:bg-gradient-left-dark) {
+.dark .bg-gradient-left{
   background-image: conic-gradient(from 90deg at -10% 100%,#2b303b 0deg,#2b303b 90deg,#16181d 1turn);
 }
 
-:is(.dark .dark\:bg-gradient-right-dark) {
+.dark .bg-gradient-right {
   background-image: conic-gradient(from -90deg at 110% 100%,#2b303b 0deg,#16181d 90deg,#16181d 1turn);
 }
 
 .shadow-nav, .shadow-none {
   box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+}
+
+/* Dark Scrollbar */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  background-color: #16181d;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #2b303b;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #404756;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #16181d;
+}
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bcc1cd;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a2a2a2;
 }
