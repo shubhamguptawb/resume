@@ -1,4 +1,4 @@
-import { Button, Wrapper } from '../components';
+import { ButtonHome, Wrapper } from '../components';
 import { getSectionAnimation } from '../animations';
 import { contactSection } from '../utils/portfolio';
 
@@ -23,9 +23,9 @@ const Contact = () => {
         <p key={i}>{paragraph}</p>
       ))}
 
-      <Button type="link" size="lg" href={link} center className="mt-12">
+      <ButtonHome type="link" size="lg" href={link} center className="mt-12">
         Let's Connect
-      </Button>
+      </ButtonHome>
       </div>
 
     </Wrapper>

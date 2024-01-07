@@ -1,3 +1,4 @@
+import ButtonHome from './ButtonHome';
 import Button from './Button';
 import DarkModeButton from './DarkModeButton';
 import HeroImage from './HeroImage';
@@ -17,6 +18,7 @@ import Wrapper from './Wrapper';
 
 export {
   Button,
+  ButtonHome,
   NavButton,
   ShowLottie,
   SkillIcon,

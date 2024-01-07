@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button, DarkModeButton, Link, NavButton } from '../components';
+import { ButtonHome, DarkModeButton, Link, NavButton } from '../components';
 import { fadeIn, slideIn } from '../animations';
 import { author, navbarSection } from '../utils/portfolio';
 import { getBreakpointsWidth, getId } from '../utils/helper';
@@ -116,7 +116,7 @@ const Navbar = () => {
 
             <div className="flex justify-between gap-5 xl:gap-6 items-center">
               {cta && (
-                <Button
+                <ButtonHome
                   type="link"
                   href={cta.url}
                   sameTab={cta?.sameTab}
@@ -128,7 +128,7 @@ const Navbar = () => {
                   animate="show"
                 >
                   {cta.title}
-                </Button>
+                </ButtonHome>
               )}
               <DarkModeButton
                 onClick={() => setNavbarCollapsed(false)}

@@ -1,8 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-
 export default function Document() {
   return (
-    <Html className="scroll-smooth bg-bg h-max" lang="en">
+    <Html className="scroll-smooth bg-bg h-screen w-screen overflow-x-hidden" lang="en">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -18,12 +17,14 @@ export default function Document() {
         <script src="/scripts/no-flash.js"></script>
       </Head>
       <body className="text-text"
-     
-     
+
+
       >
+
         <Main />
         <NextScript />
       </body>
     </Html>
+
   );
 }

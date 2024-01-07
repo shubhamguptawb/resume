@@ -1,4 +1,4 @@
-import { Button, ShowLottie } from '../components';
+import { ButtonHome, ShowLottie } from '../components';
 import { Layout } from '../containers';
 
 const Custom404 = () => {
@@ -11,9 +11,9 @@ const Custom404 = () => {
           page not found
         </p>
 
-        <Button type="link" href="/" size="lg" className="mt-20" sameTab center>
+        <ButtonHome type="link" href="/" size="lg" className="mt-20" sameTab center>
           go home
-        </Button>
+        </ButtonHome>
       </div>
     </Layout>
   );
