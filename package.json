@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.0",
+    "antd": "^5.12.8",
+    "firebase": "^10.7.1",
     "framer-motion": "^9.0.3",
     "next": "latest",
     "nodemon": "^2.0.22",
+    "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-spinners": "^0.13.8",
     "sharp": "^0.31.3"
   },
   "devDependencies": {

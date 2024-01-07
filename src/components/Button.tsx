@@ -1,90 +1,88 @@
-import Link from 'next/link';
-import { motion, MotionProps } from 'framer-motion';
-import { removeKeys } from '../utils/helper';
+import React, { FC, MouseEvent, ReactNode } from 'react'
+import PulseLoader from 'react-spinners/PulseLoader'
 
-interface DefaultProps {
-  children: React.ReactNode | string;
-  className?: string;
-  variant?: 'solid' | 'outlined';
-  size?: 'lg' | 'sm';
-  center?: boolean;
+type ButtonColor = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'black'
+type ButtonSize = 'sm' | 'md' | 'lg'
+interface ButtonProps {
+    type?: 'button' | 'submit'
+    children: ReactNode
+    color?: ButtonColor
+    className?: string
+    loading?: boolean
+    loadingText?: string
+    loadingIcon?: ReactNode
+    title?: string
+    size?: ButtonSize
+    onClick?: (event: MouseEvent<HTMLButtonElement>) => void
+    disabled?: boolean
 }
 
-interface LinkProps extends DefaultProps {
-  href: string;
-  sameTab?: boolean;
-}
-
-interface ButtonProps extends DefaultProps {
-  onClick?: (event: React.MouseEvent) => void;
-}
-
-type Props =
-  | ({
-      type?: 'button';
-    } & ButtonProps)
-  | ({
-      type: 'link';
-    } & LinkProps);
-
-// For separating animation props from button props
-const buttonProps: Array<keyof Props | keyof LinkProps> = [
-  'center',
-  'children',
-  'className',
-  'size',
-  'variant',
-  'type',
-  'href',
-];
-
-const Button = (props: Props & MotionProps) => {
-  const {
-    className,
+const Button: FC<ButtonProps> = ({
     children,
+    className,
     type = 'button',
-    variant = 'solid',
-    size = 'sm',
-    center = false,
-    ...rest
-  } = props;
+    color = 'primary',
+    size = 'md',
+    onClick,
+    disabled = false,
+    loading = false,
+    title = '',
+    loadingText = '',
+    loadingIcon = null,
+}) => {
+    // Define the color classes
+    let colorClasses = ''
+    switch (color) {
+        case 'primary':
+            colorClasses = 'bg-primary-500  border hover:bg-primary-600 border-primary-500 text-white '
+            break
+        case 'secondary':
+            colorClasses = 'bg-white border border-primary-500 hover:bg-primary-50 text-primary-500'
+            break
+        case 'tertiary':
+            colorClasses = 'text-primary-500 bg-white hover:bg-primary-100'
+            break
+        case 'black':
+            colorClasses = 'bg-neutralgray-10 hover:bg-neutralgray-12 text-white'
+            break
+        case 'danger':
+            colorClasses = '!border-red-500 border !text-red-500 hover:bg-error-50'
+            break
 
-  const classes = `${
-    size === 'sm'
-      ? 'p-2 px-4 text-sm border-[1.5px] '
-      : 'text-sm p-4 px-6 border-2'
-  } block ${
-    center ? 'mx-auto' : ''
-  } w-fit font-mono capitalize rounded border-accent text-accent hover:bg-accent-light focus:outline-none focus:bg-accent-light duration-150 cursor-pointer ${className}`;
+        default:
+            colorClasses = 'bg-blue-500 hover:bg-blue-600 text-white'
+    }
 
-  // TODO: Needs to improve this framer motion logic
-  if (props.type === 'link') {
-    const { sameTab, ...motionProps } = props;
-    removeKeys<Props & LinkProps>(motionProps, buttonProps);
+    // Define the size classes
+    let sizeClasses = ''
+    switch (size) {
+        case 'sm':
+            sizeClasses = 'h-[1.875rem] text-[0.6875rem] px-2 '
+            break
+        case 'md':
+            sizeClasses = 'h-[2.25rem] text-xs px-3'
+            break
+        case 'lg':
+            sizeClasses = 'h-[2.75rem] px-3  text-sm'
+            break
+        default:
+            sizeClasses = 'py-2 px-4 text-base'
+    }
 
     return (
-      <motion.span {...motionProps}>
-        <Link
-          className={classes}
-          href={props.href}
-          target={sameTab ? '_self' : '_blank'}
-          rel="noopener noreferrer"
-        >
-          {children}
-        </Link>
-      </motion.span>
-    );
-  }
+        <button
+            type={type}
+            autoFocus={false}
+            title={title || ''}
+            className={`${className} ${disabled ? `${!loading ? 'hover:!text-neutralgray-5 hover:!bg-neutralgray-3 !border-neutralgray-3  !bg-neutralgray-3  !text-neutralgray-5' : ''} ` : ''
+                } ease center  rounded-md w-max font-medium transition-all duration-300 ${colorClasses} ${sizeClasses} `}
+            onClick={onClick}
+            disabled={disabled}>
+            {loading && <span className="mr-2">{loadingIcon ? loadingIcon : <PulseLoader color="#ffffff" loading size={5} />}</span>}
 
-  if (type == 'button') {
-    return (
-      <button type={type} className={classes} onClick={props.onClick}>
-        {children}
-      </button>
-    );
-  }
+            {loading && loadingText ? loadingText : children}
+        </button>
+    )
+}
 
-  return <></>;
-};
-
-export default Button;
+export default Button

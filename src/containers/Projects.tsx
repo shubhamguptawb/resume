@@ -1,14 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button, ProjectCard, Wrapper } from '../components';
 import { PROJECTS_INITIALLY } from '../utils/config';
 import { sortByYear } from '../utils/helper';
-import { projectsSection } from '../utils/portfolio';
 import { getSectionAnimation, projectVariants } from '../animations';
-
+import { collection, query,  onSnapshot } from "firebase/firestore";
+import {db} from '../config/firebase'
+import { ProjectType } from '../types';
 const Projects = () => {
-  const { projects, title } = projectsSection;
+  
   const [showMore, setShowMore] = useState(false);
+  const title = 'My Projects'
+  const [projects , setProjects] = useState<ProjectType[]>([]) 
+
+  useEffect(() => {
+    const q = query(collection(db, "projects"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const data:ProjectType[] = [];
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data() as ProjectType);
+      });
+  
+      setProjects(data)
+    });
+
+  }, [])
+  
+
   const topProjects = projects.slice(0, PROJECTS_INITIALLY);
 
   const visibleProjects = showMore ? projects : topProjects;

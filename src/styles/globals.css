@@ -44,6 +44,10 @@
     font-family: 'Lemon-Regular';
     src: url('/fonts/Lemon-Regular.ttf') format('opentype');
   }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat.ttf') format('opentype');
+  }
 
   * {
     @apply focus:outline-dashed outline-[3px] outline-offset-4 outline-accent;
@@ -109,4 +113,10 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #a2a2a2;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
 }

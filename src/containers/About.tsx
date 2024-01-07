@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { HeroImage, ListItem, Wrapper, Link } from '../components';
 import { getSectionAnimation } from '../animations';
-import { aboutSection, author } from '../utils/portfolio';
+import { aboutSection, author, createSection } from '../utils/portfolio';
 import { getId } from '../utils/helper';
 
 const About = () => {
@@ -10,6 +10,7 @@ const About = () => {
   const [domLoaded, setDomLoaded] = useState(false);
 
   useEffect(() => {
+    createSection()
     setDomLoaded(true);
   }, []);
 

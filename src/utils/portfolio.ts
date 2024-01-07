@@ -12,6 +12,8 @@ import {
 import { StringKeyValueType } from '../types';
 import { resumeFileName } from './config';
 import { getId } from './helper';
+import { db } from '../config/firebase';
+import { addDoc, collection } from 'firebase/firestore';
 
 /*
  * =========================
@@ -204,68 +206,7 @@ export const experienceSection: ExperienceSectionType = {
   ],
 };
 
-// * Projects Section
 
-export const projectsSection: ProjectsSectionType = {
-  title: 'my projects',
-  projects: [
-    {
-      id: getId(),
-      name: 'DoubtNix',
-      url: 'https://github.com/shubhamguptawb/DoubtNix',
-      repo: 'https://github.com/shubhamguptawb/DoubtNix',
-      img: 'https://user-images.githubusercontent.com/90547108/179741406-604e36f9-4116-4990-9ed5-e493a3bb17f4.png',
-      year: 2023,
-      tags: ['NextJS', 'Typescript', 'Shadcn', 'Node JS', 'Express JS', 'MongoDB'],
-    },
-    {
-      id: getId(),
-      name: 'ZOHO CRM Dashboard',
-      url: 'https://github.com/shubhamguptawb/Zoho-CRM',
-      repo: 'https://github.com/shubhamguptawb/Zoho-CRM',
-      img: 'https://boostedcrm.com/wp-content/uploads/2018/09/zohocrmplus-2048x1334.png',
-      year: 2023,
-      tags: ['NextJS', 'Typescript', 'Node JS',],
-    },
-    {
-      id: getId(),
-      name: 'Myntra Clone',
-      url: 'https://github.com/shubhamguptawb/Tunic-App',
-      repo: 'https://github.com/shubhamguptawb/Tunic-App',
-      img: 'https://private-user-images.githubusercontent.com/90547108/293591899-bad6b0c8-9fd8-468c-adc0-baaea253d9f6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDQxMjA0MDIsIm5iZiI6MTcwNDEyMDEwMiwicGF0aCI6Ii85MDU0NzEwOC8yOTM1OTE4OTktYmFkNmIwYzgtOWZkOC00NjhjLWFkYzAtYmFhZWEyNTNkOWY2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAxMDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMTAxVDE0NDE0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWM3NTc0M2UyYTRlNGFiMTc3ZDRlMjA2MmY5OThkYjkwZmY4MzNmNWI0NTdkNjIwYTNmODk2NTc0MDAzY2QxMGQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.qyuMz6XrP3C5LHubuJurqEBwyvR5ebcK9oOBhkIf47k',
-      year: 2023,
-      tags: ['React', 'Redux', 'Tailwind CSS', ],
-    },
-    {
-      id: getId(),
-      name: 'Tunica eCommerce',
-      url: 'https://github.com/shubhamguptawb/Tunica',
-      repo: 'https://github.com/shubhamguptawb/Tunica',
-      img: 'https://user-images.githubusercontent.com/90547108/177714159-c3b2848e-e62d-4397-a41c-77030005b28e.PNG',
-      year: 2022,
-      tags: ['React', 'Redux', 'Tailwind CSS'],
-    },
-    {
-      id: getId(),
-      name: 'Meal App',
-      url: 'https://github.com/shubhamguptawb/meal-app',
-      repo: 'https://github.com/shubhamguptawb/meal-app',
-      img: 'https://user-images.githubusercontent.com/90547108/161460396-cf7f1085-f728-4b12-8960-0349f256c718.JPG',
-      year: 2023,
-      tags: ['HTML', 'CSS', 'JavaScript'],
-    },
-    {
-      id: getId(),
-      name: 'Food Wars',
-      url: 'https://github.com/shubhamguptawb/Food-Wars',
-      repo: 'https://github.com/shubhamguptawb/Food-Wars',
-      img: 'https://user-images.githubusercontent.com/90547108/173879716-aa2c2f8b-e61b-4570-8feb-2c446c70593b.PNG',
-      year: 2022,
-      tags: ['HTML', 'CSS','React', 'Redux', 'Tailwind CSS'],
-    },
-  
-  ],
-};
 
 // * Contact Section
 
@@ -308,3 +249,12 @@ export const footerSection: FooterSectionType = {
   title: '',
   link: '',
 };
+
+
+
+export const createSection = async ()=>{ 
+  // for(let element of projectsSection.projects){
+  //   const docRef = await addDoc(collection(db, "projects"),element);
+  //   console.log("Document written with ID: ", docRef.id);
+  // }
+}
