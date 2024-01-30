@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Tablist } from '../components';
-import { getSectionAnimation } from '../animations';
-import { experienceSection } from '../utils/portfolio';
+import { Tablist } from '../../components';
+import { getSectionAnimation } from '../../animations';
+import { experienceSection } from '../../utils/portfolio';
 
 const Experience = () => {
   return (
@@ -12,9 +12,9 @@ const Experience = () => {
     >
       <div className='mx-auto px-6 md:px-0 max-w-[60rem]'>
 
-      <h2 className="heading-secondary">{experienceSection.title}</h2>
+        <h2 className="heading-secondary">{experienceSection.title}</h2>
 
-      <Tablist experiences={experienceSection.experiences} />
+        <Tablist experiences={experienceSection.experiences} />
       </div>
     </motion.section>
   );

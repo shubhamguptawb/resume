@@ -8,7 +8,7 @@ import {
   Contact,
   Projects,
   Layout,
-} from '../containers';
+} from '../containers/main';
 import { seoData } from '../utils/portfolio';
 
 const Home: NextPage = () => {

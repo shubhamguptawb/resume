@@ -1,5 +1,5 @@
-import { Sidebar, SocialLink } from '../components';
-import { author } from '../utils/portfolio';
+import { Sidebar, SocialLink } from '../../components';
+import { author } from '../../utils/portfolio';
 
 const Email = () => {
   return (

@@ -1,5 +1,5 @@
 import { ButtonHome, ShowLottie } from '../components';
-import { Layout } from '../containers';
+import { Layout } from '../containers/main';
 
 const Custom404 = () => {
   return (

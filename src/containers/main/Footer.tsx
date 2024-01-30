@@ -1,5 +1,5 @@
 import SocialLinks from './SocialLinks';
-import { footerSection } from '../utils/portfolio';
+import { footerSection } from '../../utils/portfolio';
 
 const Footer = () => {
   return (

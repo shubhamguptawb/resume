@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ButtonHome, DarkModeButton, Link, NavButton } from '../components';
-import { fadeIn, slideIn } from '../animations';
-import { author, navbarSection } from '../utils/portfolio';
-import { getBreakpointsWidth, getId } from '../utils/helper';
-import useWindowWidth from '../hooks/use-window-width';
+import { ButtonHome, DarkModeButton, Link, NavButton } from '../../components';
+import { fadeIn, slideIn } from '../../animations';
+import { author, navbarSection } from '../../utils/portfolio';
+import { getBreakpointsWidth, getId } from '../../utils/helper';
+import useWindowWidth from '../../hooks/use-window-width';
 
 /**
  * Hides the navbar while scrolling down
@@ -85,9 +85,9 @@ const Navbar = () => {
       id="navbar"
       className="px-8 md:px-6 xl:px-12 py-4 fixed inset-x-0 top-0 right-0 flex justify-between items-end z-50   md:border-b-0  md:bg-[#fff] dark:md:bg-[#23272f] bg-transparent shadow-nav transiton ease-linear duration-75 "
     >
-      <img src = '/shubham-gupta.png' alt='logo' className='rounded-full h-8 aspect-square ring-2 ring-accent ring-offset-1'/>
-     
-     <NavButton
+      <img src='/shubham-gupta.png' alt='logo' className='rounded-full h-8 aspect-square ring-2 ring-accent ring-offset-1' />
+
+      <NavButton
         onClick={() => {
           setNavbarCollapsed((prev) => !prev);
         }}

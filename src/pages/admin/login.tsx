@@ -1,12 +1,12 @@
 
 
 import Label from '@/components/Label'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, ChangeEvent } from 'react'
 import { Button, ShowLottie } from '../../components'
 import Heading from '../../components/Heading'
 import Input from '../../components/Input'
 type Props = {}
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { browserSessionPersistence, getAuth, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from 'react-hot-toast'
 import { useAuth } from '@/context/auth-context'
 import { initializer } from '@/config/firebase'
@@ -33,7 +33,8 @@ function login({ }: Props) {
 
   const [loading, setLoading] = useState(false)
 
-  function handleSubmit() {
+  function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
     //validate email and password
     if (!state.email || !state.password) {
 
@@ -43,22 +44,34 @@ function login({ }: Props) {
     initializer()
     const auth = getAuth();
     setLoading(true)
-    signInWithEmailAndPassword(auth, state.email, state.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user)
-        login(user)
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        return signInWithEmailAndPassword(auth, state.email, state.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user)
+            login(user)
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          }).finally(() => {
+            setLoading(false)
+          });
       })
       .catch((error) => {
+        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-      }).finally(() => {
-        setLoading(false)
       });
+
+
   }
   const router = useRouter()
   useEffect(() => {
+
     if (user) {
+
       router.push('/admin/dashboard')
     }
   }, [user])
@@ -72,40 +85,44 @@ function login({ }: Props) {
       <section className='w-screen center flex-col h-screen md:w-[50vw]'>
         <div className=' border rounded-xl p-9 md:w-[25rem] flex flex-col gap-9'>
           <Heading size='h2' className='text-center'>Login to your account</Heading>
-          <div className='flex flex-col gap-6 w-full'>
-            <div className='flex flex-col gap-2'>
-              <Label
-              >
-                Email
-              </Label>
-              <Input type='email'
-                value={state.email}
-                onChange={handleChange}
-                name='email'
-              />
+          <form onSubmit={handleSubmit}>
 
-            </div>
-            <div className='flex flex-col gap-2'>
-              <Label>
-                Password
-              </Label>
-              <Input type='password'
-                value={state.password}
-                onChange={handleChange}
-                name='password'
-              />
+            <div className='flex flex-col gap-6 w-full'>
+              <div className='flex flex-col gap-2'>
+                <Label
+                >
+                  Email
+                </Label>
+                <Input type='email'
+                  value={state.email}
+                  onChange={handleChange}
+                  name='email'
+                />
 
+              </div>
+              <div className='flex flex-col gap-2'>
+                <Label>
+                  Password
+                </Label>
+                <Input type='password'
+                  value={state.password}
+                  onChange={handleChange}
+                  name='password'
+                />
+
+              </div>
+              <div>
+                <Button className='w-full'
+                  loading={loading}
+                  type='submit'
+                  loadingText='Processing'
+                >
+                  Login
+                </Button>
+              </div>
             </div>
-            <div>
-              <Button className='w-full'
-                loading={loading}
-                loadingText='Processing'
-                onClick={handleSubmit}
-              >
-                Login
-              </Button>
-            </div>
-          </div>
+          </form>
+
         </div>
       </section>
     </div>
